@@ -1,0 +1,462 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>아이즈컴퍼니</title>
+
+  <style>
+    *{
+      margin:0;
+      padding:0;
+      box-sizing:border-box;
+    }
+
+    body{
+      font-family:'Pretendard','Noto Sans KR',sans-serif;
+      background:#f4f7fb;
+      color:#111;
+      overflow-x:hidden;
+    }
+
+    a{
+      text-decoration:none;
+      color:inherit;
+    }
+
+    header{
+      position:fixed;
+      top:0;
+      left:0;
+      width:100%;
+      background:rgba(255,255,255,0.85);
+      backdrop-filter:blur(14px);
+      border-bottom:1px solid rgba(0,0,0,0.06);
+      z-index:1000;
+    }
+
+    .header-inner{
+      max-width:1200px;
+      margin:auto;
+      padding:18px 24px;
+      display:flex;
+      justify-content:space-between;
+      align-items:center;
+    }
+
+    .logo{
+      font-size:24px;
+      font-weight:800;
+      color:#1463ff;
+    }
+
+    .nav{
+      display:flex;
+      gap:24px;
+      font-size:15px;
+      font-weight:600;
+    }
+
+    .hero{
+      padding:140px 24px 100px;
+      background:
+      linear-gradient(135deg,#1463ff 0%,#0d1d44 100%);
+      color:white;
+    }
+
+    .hero-inner{
+      max-width:1200px;
+      margin:auto;
+      display:grid;
+      grid-template-columns:1fr 1fr;
+      gap:60px;
+      align-items:center;
+    }
+
+    .hero h1{
+      font-size:64px;
+      line-height:1.1;
+      margin-bottom:24px;
+      font-weight:900;
+    }
+
+    .hero p{
+      font-size:18px;
+      line-height:1.8;
+      opacity:0.9;
+      margin-bottom:34px;
+    }
+
+    .hero-buttons{
+      display:flex;
+      gap:16px;
+      flex-wrap:wrap;
+    }
+
+    .btn{
+      padding:16px 28px;
+      border-radius:14px;
+      font-weight:700;
+      transition:0.2s;
+    }
+
+    .btn-primary{
+      background:white;
+      color:#1463ff;
+    }
+
+    .btn-sub{
+      border:1px solid rgba(255,255,255,0.25);
+      background:rgba(255,255,255,0.12);
+      color:white;
+    }
+
+    .btn:hover{
+      transform:translateY(-3px);
+    }
+
+    .hero-card{
+      background:white;
+      border-radius:28px;
+      padding:32px;
+      color:#111;
+      box-shadow:0 20px 60px rgba(0,0,0,0.2);
+    }
+
+    .hero-card h3{
+      margin-bottom:20px;
+      font-size:28px;
+    }
+
+    .notice-list{
+      display:flex;
+      flex-direction:column;
+      gap:14px;
+    }
+
+    .notice-item{
+      background:#f4f7fb;
+      padding:16px;
+      border-radius:14px;
+      font-weight:600;
+    }
+
+    section{
+      padding:100px 24px;
+    }
+
+    .container{
+      max-width:1200px;
+      margin:auto;
+    }
+
+    .section-title{
+      font-size:44px;
+      margin-bottom:16px;
+      font-weight:900;
+      text-align:center;
+    }
+
+    .section-desc{
+      text-align:center;
+      color:#666;
+      margin-bottom:50px;
+      line-height:1.7;
+    }
+
+    .price-image{
+      width:100%;
+      border-radius:28px;
+      overflow:hidden;
+      background:white;
+      padding:18px;
+      box-shadow:0 10px 40px rgba(0,0,0,0.08);
+    }
+
+    .price-image img{
+      width:100%;
+      display:block;
+      border-radius:18px;
+    }
+
+    .features{
+      display:grid;
+      grid-template-columns:repeat(4,1fr);
+      gap:22px;
+      margin-top:60px;
+    }
+
+    .feature{
+      background:white;
+      padding:32px;
+      border-radius:24px;
+      text-align:center;
+      box-shadow:0 10px 30px rgba(0,0,0,0.05);
+    }
+
+    .feature h3{
+      margin:18px 0 12px;
+      font-size:22px;
+    }
+
+    .feature p{
+      color:#666;
+      line-height:1.7;
+      font-size:15px;
+    }
+
+    .emoji{
+      font-size:42px;
+    }
+
+    .process{
+      display:grid;
+      grid-template-columns:repeat(4,1fr);
+      gap:24px;
+      margin-top:60px;
+    }
+
+    .step{
+      background:white;
+      padding:30px;
+      border-radius:24px;
+      box-shadow:0 10px 30px rgba(0,0,0,0.05);
+    }
+
+    .step-number{
+      width:42px;
+      height:42px;
+      border-radius:50%;
+      background:#1463ff;
+      color:white;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      font-weight:800;
+      margin-bottom:18px;
+    }
+
+    .step h3{
+      margin-bottom:12px;
+    }
+
+    .step p{
+      color:#666;
+      line-height:1.7;
+    }
+
+    .kakao-fixed{
+      position:fixed;
+      right:24px;
+      bottom:24px;
+      background:#ffe812;
+      color:#111;
+      padding:18px 24px;
+      border-radius:999px;
+      font-weight:800;
+      box-shadow:0 10px 30px rgba(0,0,0,0.15);
+      z-index:9999;
+    }
+
+    footer{
+      background:#0d1d44;
+      color:white;
+      padding:60px 24px;
+      text-align:center;
+      line-height:1.8;
+    }
+
+    @media(max-width:900px){
+
+      .nav{
+        display:none;
+      }
+
+      .hero-inner{
+        grid-template-columns:1fr;
+      }
+
+      .hero h1{
+        font-size:44px;
+      }
+
+      .features{
+        grid-template-columns:1fr;
+      }
+
+      .process{
+        grid-template-columns:1fr;
+      }
+
+      .section-title{
+        font-size:34px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+<header>
+  <div class="header-inner">
+    <div class="logo">아이즈컴퍼니</div>
+
+    <nav class="nav">
+      <a href="#price">오늘의 시세표</a>
+      <a href="#features">진행안내</a>
+      <a href="#contact">상담문의</a>
+    </nav>
+  </div>
+</header>
+
+<section class="hero">
+
+  <div class="hero-inner">
+
+    <div>
+      <h1>
+        휴대폰 성지<br>
+        아이즈컴퍼니
+      </h1>
+
+      <p>
+        매일 업데이트되는 시세표와 빠른 상담.<br>
+        불필요한 카드강요, 폰반납 없이 합리적인 조건으로 안내해드립니다.
+      </p>
+
+      <div class="hero-buttons">
+        <a class="btn btn-primary" href="#">카카오 상담하기</a>
+        <a class="btn btn-sub" href="#price">시세표 보기</a>
+      </div>
+    </div>
+
+    <div class="hero-card">
+
+      <h3>오늘의 안내</h3>
+
+      <div class="notice-list">
+        <div class="notice-item">✔ 실시간 시세표 업데이트</div>
+        <div class="notice-item">✔ 카드 강요 없음</div>
+        <div class="notice-item">✔ 폰반납 조건 없음</div>
+        <div class="notice-item">✔ 전국 택배 진행 가능</div>
+      </div>
+
+    </div>
+
+  </div>
+
+</section>
+
+<section id="price">
+
+  <div class="container">
+
+    <h2 class="section-title">오늘의 시세표</h2>
+
+    <p class="section-desc">
+      아래 이미지는 매일 직접 제작하여 업데이트됩니다.<br>
+      재고 및 정책은 실시간 변동될 수 있습니다.
+    </p>
+
+    <div class="price-image">
+      <img src="https://placehold.co/1200x700/e9eefc/111?text=오늘의+시세표+이미지" alt="">
+    </div>
+
+  </div>
+
+</section>
+
+<section id="features">
+
+  <div class="container">
+
+    <h2 class="section-title">왜 아이즈컴퍼니인가?</h2>
+
+    <p class="section-desc">
+      복잡한 조건 없이 쉽고 빠르게 안내해드립니다.
+    </p>
+
+    <div class="features">
+
+      <div class="feature">
+        <div class="emoji">📱</div>
+        <h3>실시간 정책</h3>
+        <p>매일 변동되는 최신 시세표를 빠르게 안내합니다.</p>
+      </div>
+
+      <div class="feature">
+        <div class="emoji">🚚</div>
+        <h3>전국 진행</h3>
+        <p>택배 개통 및 비대면 상담 진행 가능합니다.</p>
+      </div>
+
+      <div class="feature">
+        <div class="emoji">💬</div>
+        <h3>빠른 상담</h3>
+        <p>카카오톡 기반으로 쉽고 빠르게 문의 가능합니다.</p>
+      </div>
+
+      <div class="feature">
+        <div class="emoji">💸</div>
+        <h3>합리적 조건</h3>
+        <p>불필요한 부가서비스 및 카드 강요를 최소화합니다.</p>
+      </div>
+
+    </div>
+
+  </div>
+
+</section>
+
+<section>
+
+  <div class="container">
+
+    <h2 class="section-title">진행 절차</h2>
+
+    <div class="process">
+
+      <div class="step">
+        <div class="step-number">1</div>
+        <h3>상담 문의</h3>
+        <p>원하는 기종과 통신사를 문의해주세요.</p>
+      </div>
+
+      <div class="step">
+        <div class="step-number">2</div>
+        <h3>조건 안내</h3>
+        <p>현재 가능한 정책 및 조건을 안내드립니다.</p>
+      </div>
+
+      <div class="step">
+        <div class="step-number">3</div>
+        <h3>개통 진행</h3>
+        <p>비대면 또는 방문으로 개통 진행 가능합니다.</p>
+      </div>
+
+      <div class="step">
+        <div class="step-number">4</div>
+        <h3>수령 완료</h3>
+        <p>빠른 배송 및 개통 완료 안내를 도와드립니다.</p>
+      </div>
+
+    </div>
+
+  </div>
+
+</section>
+
+<footer id="contact">
+
+  아이즈컴퍼니<br>
+  카카오 상담 / 전화문의 운영<br>
+  © 2026 EYES COMPANY
+
+</footer>
+
+<a class="kakao-fixed" href="#">
+카카오 상담
+</a>
+
+</body>
+</html>
