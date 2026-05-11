@@ -1,462 +1,915 @@
 <!DOCTYPE html>
 <html lang="ko">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>아이즈컴퍼니</title>
 
   <style>
-    *{
-      margin:0;
-      padding:0;
-      box-sizing:border-box;
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
     }
 
-    body{
-      font-family:'Pretendard','Noto Sans KR',sans-serif;
-      background:#f4f7fb;
-      color:#111;
-      overflow-x:hidden;
+    html {
+      scroll-behavior: smooth;
     }
 
-    a{
-      text-decoration:none;
-      color:inherit;
+    body {
+      font-family: 'Pretendard', 'Noto Sans KR', -apple-system, BlinkMacSystemFont, sans-serif;
+      background: #eef3ff;
+      color: #101522;
+      overflow-x: hidden;
     }
 
-    header{
-      position:fixed;
-      top:0;
-      left:0;
-      width:100%;
-      background:rgba(255,255,255,0.85);
-      backdrop-filter:blur(14px);
-      border-bottom:1px solid rgba(0,0,0,0.06);
-      z-index:1000;
+    a {
+      color: inherit;
+      text-decoration: none;
     }
 
-    .header-inner{
-      max-width:1200px;
-      margin:auto;
-      padding:18px 24px;
-      display:flex;
-      justify-content:space-between;
-      align-items:center;
-    }
-
-    .logo{
-      font-size:24px;
-      font-weight:800;
-      color:#1463ff;
-    }
-
-    .nav{
-      display:flex;
-      gap:24px;
-      font-size:15px;
-      font-weight:600;
-    }
-
-    .hero{
-      padding:140px 24px 100px;
+    .page {
+      min-height: 100vh;
       background:
-      linear-gradient(135deg,#1463ff 0%,#0d1d44 100%);
-      color:white;
+        radial-gradient(circle at 12% 12%, rgba(0, 119, 255, 0.22), transparent 30%),
+        radial-gradient(circle at 85% 8%, rgba(0, 210, 255, 0.22), transparent 32%),
+        linear-gradient(180deg, #f8fbff 0%, #eef3ff 45%, #ffffff 100%);
     }
 
-    .hero-inner{
-      max-width:1200px;
-      margin:auto;
-      display:grid;
-      grid-template-columns:1fr 1fr;
-      gap:60px;
-      align-items:center;
+    header {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      z-index: 1000;
+      background: rgba(255, 255, 255, 0.82);
+      backdrop-filter: blur(18px);
+      border-bottom: 1px solid rgba(20, 99, 255, 0.12);
     }
 
-    .hero h1{
-      font-size:64px;
-      line-height:1.1;
-      margin-bottom:24px;
-      font-weight:900;
+    .header-inner {
+      max-width: 1180px;
+      margin: 0 auto;
+      padding: 16px 22px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
     }
 
-    .hero p{
-      font-size:18px;
-      line-height:1.8;
-      opacity:0.9;
-      margin-bottom:34px;
+    .logo-wrap {
+      display: flex;
+      align-items: center;
+      gap: 10px;
     }
 
-    .hero-buttons{
-      display:flex;
-      gap:16px;
-      flex-wrap:wrap;
+    .logo-icon {
+      width: 36px;
+      height: 36px;
+      border-radius: 12px;
+      background: linear-gradient(135deg, #1463ff, #00c2ff);
+      color: white;
+      display: grid;
+      place-items: center;
+      font-weight: 900;
+      box-shadow: 0 10px 24px rgba(20, 99, 255, 0.28);
     }
 
-    .btn{
-      padding:16px 28px;
-      border-radius:14px;
-      font-weight:700;
-      transition:0.2s;
+    .logo {
+      font-size: 22px;
+      font-weight: 900;
+      letter-spacing: -0.5px;
     }
 
-    .btn-primary{
-      background:white;
-      color:#1463ff;
+    .logo span {
+      color: #1463ff;
     }
 
-    .btn-sub{
-      border:1px solid rgba(255,255,255,0.25);
-      background:rgba(255,255,255,0.12);
-      color:white;
+    .nav {
+      display: flex;
+      gap: 22px;
+      font-size: 14px;
+      font-weight: 800;
+      color: #33405f;
     }
 
-    .btn:hover{
-      transform:translateY(-3px);
+    .nav a:hover {
+      color: #1463ff;
     }
 
-    .hero-card{
-      background:white;
-      border-radius:28px;
-      padding:32px;
-      color:#111;
-      box-shadow:0 20px 60px rgba(0,0,0,0.2);
+    .top-cta {
+      padding: 11px 16px;
+      border-radius: 999px;
+      background: #101522;
+      color: white;
+      font-size: 13px;
+      font-weight: 900;
     }
 
-    .hero-card h3{
-      margin-bottom:20px;
-      font-size:28px;
+    .hero {
+      padding: 132px 22px 76px;
+      position: relative;
+      overflow: hidden;
     }
 
-    .notice-list{
-      display:flex;
-      flex-direction:column;
-      gap:14px;
+    .hero::before {
+      content: "";
+      position: absolute;
+      width: 540px;
+      height: 540px;
+      right: -180px;
+      top: 70px;
+      background: radial-gradient(circle, rgba(20, 99, 255, 0.22), transparent 68%);
+      pointer-events: none;
     }
 
-    .notice-item{
-      background:#f4f7fb;
-      padding:16px;
-      border-radius:14px;
-      font-weight:600;
+    .hero-inner {
+      max-width: 1180px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 1.02fr 0.98fr;
+      align-items: center;
+      gap: 42px;
+      position: relative;
+      z-index: 2;
     }
 
-    section{
-      padding:100px 24px;
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 9px 14px;
+      border-radius: 999px;
+      background: rgba(20, 99, 255, 0.1);
+      color: #1463ff;
+      font-size: 13px;
+      font-weight: 900;
+      margin-bottom: 22px;
     }
 
-    .container{
-      max-width:1200px;
-      margin:auto;
+    .eyebrow::before {
+      content: "";
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: #14d66f;
+      box-shadow: 0 0 0 6px rgba(20, 214, 111, 0.14);
     }
 
-    .section-title{
-      font-size:44px;
-      margin-bottom:16px;
-      font-weight:900;
-      text-align:center;
+    .hero h1 {
+      font-size: clamp(42px, 6vw, 72px);
+      line-height: 1.06;
+      letter-spacing: -3px;
+      margin-bottom: 22px;
+      font-weight: 950;
     }
 
-    .section-desc{
-      text-align:center;
-      color:#666;
-      margin-bottom:50px;
-      line-height:1.7;
+    .hero h1 strong {
+      display: inline-block;
+      color: #1463ff;
+      position: relative;
     }
 
-    .price-image{
-      width:100%;
-      border-radius:28px;
-      overflow:hidden;
-      background:white;
-      padding:18px;
-      box-shadow:0 10px 40px rgba(0,0,0,0.08);
+    .hero h1 strong::after {
+      content: "";
+      position: absolute;
+      left: 0;
+      right: 0;
+      bottom: 6px;
+      height: 14px;
+      background: rgba(0, 194, 255, 0.22);
+      z-index: -1;
+      border-radius: 999px;
     }
 
-    .price-image img{
-      width:100%;
-      display:block;
-      border-radius:18px;
+    .hero-desc {
+      font-size: 18px;
+      line-height: 1.8;
+      color: #526078;
+      margin-bottom: 30px;
+      max-width: 560px;
     }
 
-    .features{
-      display:grid;
-      grid-template-columns:repeat(4,1fr);
-      gap:22px;
-      margin-top:60px;
+    .hero-buttons {
+      display: flex;
+      gap: 12px;
+      flex-wrap: wrap;
+      margin-bottom: 30px;
     }
 
-    .feature{
-      background:white;
-      padding:32px;
-      border-radius:24px;
-      text-align:center;
-      box-shadow:0 10px 30px rgba(0,0,0,0.05);
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      padding: 16px 22px;
+      border-radius: 16px;
+      font-weight: 950;
+      transition: 0.22s;
     }
 
-    .feature h3{
-      margin:18px 0 12px;
-      font-size:22px;
+    .btn-primary {
+      background: linear-gradient(135deg, #1463ff, #00b7ff);
+      color: white;
+      box-shadow: 0 16px 30px rgba(20, 99, 255, 0.26);
     }
 
-    .feature p{
-      color:#666;
-      line-height:1.7;
-      font-size:15px;
+    .btn-dark {
+      background: #101522;
+      color: white;
     }
 
-    .emoji{
-      font-size:42px;
+    .btn-light {
+      background: white;
+      color: #1463ff;
+      border: 1px solid rgba(20, 99, 255, 0.14);
     }
 
-    .process{
-      display:grid;
-      grid-template-columns:repeat(4,1fr);
-      gap:24px;
-      margin-top:60px;
+    .btn:hover {
+      transform: translateY(-3px);
     }
 
-    .step{
-      background:white;
-      padding:30px;
-      border-radius:24px;
-      box-shadow:0 10px 30px rgba(0,0,0,0.05);
+    .trust-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
     }
 
-    .step-number{
-      width:42px;
-      height:42px;
-      border-radius:50%;
-      background:#1463ff;
-      color:white;
-      display:flex;
-      align-items:center;
-      justify-content:center;
-      font-weight:800;
-      margin-bottom:18px;
+    .trust-chip {
+      padding: 10px 13px;
+      border-radius: 999px;
+      background: white;
+      color: #33405f;
+      font-size: 13px;
+      font-weight: 850;
+      box-shadow: 0 8px 20px rgba(16, 21, 34, 0.06);
+      border: 1px solid rgba(20, 99, 255, 0.1);
     }
 
-    .step h3{
-      margin-bottom:12px;
+    .phone-board {
+      position: relative;
+      padding: 18px;
+      border-radius: 34px;
+      background: rgba(255, 255, 255, 0.58);
+      backdrop-filter: blur(18px);
+      border: 1px solid rgba(255, 255, 255, 0.9);
+      box-shadow: 0 30px 80px rgba(23, 47, 92, 0.18);
     }
 
-    .step p{
-      color:#666;
-      line-height:1.7;
+    .board-top {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 12px 12px 18px;
     }
 
-    .kakao-fixed{
-      position:fixed;
-      right:24px;
-      bottom:24px;
-      background:#ffe812;
-      color:#111;
-      padding:18px 24px;
-      border-radius:999px;
-      font-weight:800;
-      box-shadow:0 10px 30px rgba(0,0,0,0.15);
-      z-index:9999;
+    .board-title {
+      font-weight: 950;
+      font-size: 20px;
     }
 
-    footer{
-      background:#0d1d44;
-      color:white;
-      padding:60px 24px;
-      text-align:center;
-      line-height:1.8;
+    .live-badge {
+      padding: 8px 12px;
+      border-radius: 999px;
+      background: #eafff2;
+      color: #0a9d48;
+      font-size: 12px;
+      font-weight: 950;
     }
 
-    @media(max-width:900px){
+    .price-card-main {
+      background: linear-gradient(135deg, #101522 0%, #163b82 100%);
+      color: white;
+      border-radius: 28px;
+      padding: 28px;
+      overflow: hidden;
+      position: relative;
+    }
 
-      .nav{
-        display:none;
+    .price-card-main::after {
+      content: "";
+      position: absolute;
+      width: 180px;
+      height: 180px;
+      border-radius: 50%;
+      right: -50px;
+      top: -50px;
+      background: rgba(255, 255, 255, 0.12);
+    }
+
+    .price-card-main h3 {
+      font-size: 30px;
+      line-height: 1.25;
+      margin-bottom: 12px;
+      position: relative;
+      z-index: 2;
+    }
+
+    .price-card-main p {
+      color: rgba(255, 255, 255, 0.78);
+      line-height: 1.65;
+      margin-bottom: 22px;
+      position: relative;
+      z-index: 2;
+    }
+
+    .mini-prices {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 10px;
+      position: relative;
+      z-index: 2;
+    }
+
+    .mini-price {
+      background: rgba(255, 255, 255, 0.13);
+      border: 1px solid rgba(255, 255, 255, 0.14);
+      border-radius: 18px;
+      padding: 16px 12px;
+    }
+
+    .mini-price span {
+      display: block;
+      font-size: 12px;
+      opacity: 0.7;
+      margin-bottom: 6px;
+    }
+
+    .mini-price b {
+      font-size: 18px;
+    }
+
+    .notice-grid {
+      margin-top: 14px;
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 12px;
+    }
+
+    .notice-card {
+      background: white;
+      border-radius: 20px;
+      padding: 18px;
+      box-shadow: 0 10px 26px rgba(16, 21, 34, 0.06);
+      border: 1px solid rgba(20, 99, 255, 0.08);
+    }
+
+    .notice-card b {
+      display: block;
+      margin-bottom: 7px;
+      font-size: 16px;
+    }
+
+    .notice-card span {
+      color: #667085;
+      font-size: 13px;
+      line-height: 1.55;
+    }
+
+    section {
+      padding: 88px 22px;
+    }
+
+    .container {
+      max-width: 1180px;
+      margin: 0 auto;
+    }
+
+    .section-head {
+      text-align: center;
+      margin-bottom: 42px;
+    }
+
+    .section-tag {
+      display: inline-block;
+      padding: 8px 13px;
+      border-radius: 999px;
+      background: rgba(20, 99, 255, 0.1);
+      color: #1463ff;
+      font-size: 13px;
+      font-weight: 950;
+      margin-bottom: 14px;
+    }
+
+    .section-title {
+      font-size: clamp(32px, 4vw, 48px);
+      letter-spacing: -1.8px;
+      font-weight: 950;
+      margin-bottom: 14px;
+    }
+
+    .section-desc {
+      color: #667085;
+      line-height: 1.75;
+      font-size: 16px;
+    }
+
+    .price-wrap {
+      border-radius: 34px;
+      background: white;
+      padding: 20px;
+      box-shadow: 0 18px 50px rgba(16, 21, 34, 0.08);
+      border: 1px solid rgba(20, 99, 255, 0.1);
+    }
+
+    .price-toolbar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 12px;
+      padding: 8px 8px 18px;
+      flex-wrap: wrap;
+    }
+
+    .date-pill {
+      padding: 11px 14px;
+      border-radius: 999px;
+      background: #f1f5ff;
+      color: #1463ff;
+      font-weight: 950;
+      font-size: 13px;
+    }
+
+    .warning {
+      color: #667085;
+      font-size: 13px;
+      font-weight: 700;
+    }
+
+    .price-image {
+      border-radius: 24px;
+      overflow: hidden;
+      background: #eef3ff;
+      border: 1px dashed rgba(20, 99, 255, 0.25);
+    }
+
+    .price-image img {
+      display: block;
+      width: 100%;
+    }
+
+    .features {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 18px;
+    }
+
+    .feature {
+      position: relative;
+      background: white;
+      padding: 30px 24px;
+      border-radius: 28px;
+      box-shadow: 0 14px 36px rgba(16, 21, 34, 0.06);
+      border: 1px solid rgba(20, 99, 255, 0.08);
+      overflow: hidden;
+      transition: 0.22s;
+    }
+
+    .feature:hover {
+      transform: translateY(-6px);
+    }
+
+    .feature::after {
+      content: "";
+      position: absolute;
+      width: 90px;
+      height: 90px;
+      right: -25px;
+      top: -25px;
+      background: rgba(20, 99, 255, 0.08);
+      border-radius: 50%;
+    }
+
+    .icon {
+      width: 54px;
+      height: 54px;
+      border-radius: 18px;
+      display: grid;
+      place-items: center;
+      background: linear-gradient(135deg, #1463ff, #00b7ff);
+      color: white;
+      font-size: 25px;
+      margin-bottom: 18px;
+      box-shadow: 0 12px 24px rgba(20, 99, 255, 0.2);
+    }
+
+    .feature h3 {
+      font-size: 21px;
+      margin-bottom: 10px;
+    }
+
+    .feature p {
+      color: #667085;
+      line-height: 1.7;
+      font-size: 14px;
+    }
+
+    .process-wrap {
+      border-radius: 38px;
+      background: linear-gradient(135deg, #101522, #153b88);
+      padding: 46px;
+      color: white;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .process-wrap::before {
+      content: "";
+      position: absolute;
+      width: 320px;
+      height: 320px;
+      right: -120px;
+      top: -120px;
+      border-radius: 50%;
+      background: rgba(255, 255, 255, 0.1);
+    }
+
+    .process {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 18px;
+      position: relative;
+      z-index: 2;
+    }
+
+    .step {
+      background: rgba(255, 255, 255, 0.1);
+      border: 1px solid rgba(255, 255, 255, 0.13);
+      border-radius: 24px;
+      padding: 24px;
+      backdrop-filter: blur(10px);
+    }
+
+    .step-number {
+      width: 42px;
+      height: 42px;
+      border-radius: 50%;
+      background: white;
+      color: #1463ff;
+      display: grid;
+      place-items: center;
+      font-weight: 950;
+      margin-bottom: 16px;
+    }
+
+    .step h3 {
+      margin-bottom: 10px;
+      font-size: 19px;
+    }
+
+    .step p {
+      color: rgba(255, 255, 255, 0.72);
+      line-height: 1.65;
+      font-size: 14px;
+    }
+
+    .contact-box {
+      display: grid;
+      grid-template-columns: 1.1fr 0.9fr;
+      gap: 22px;
+      align-items: stretch;
+    }
+
+    .contact-main {
+      background: white;
+      border-radius: 32px;
+      padding: 36px;
+      box-shadow: 0 14px 40px rgba(16, 21, 34, 0.06);
+      border: 1px solid rgba(20, 99, 255, 0.08);
+    }
+
+    .contact-main h2 {
+      font-size: 36px;
+      letter-spacing: -1px;
+      margin-bottom: 14px;
+    }
+
+    .contact-main p {
+      color: #667085;
+      line-height: 1.75;
+      margin-bottom: 24px;
+    }
+
+    .contact-side {
+      border-radius: 32px;
+      padding: 34px;
+      color: white;
+      background: linear-gradient(135deg, #1463ff, #00b7ff);
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      box-shadow: 0 18px 40px rgba(20, 99, 255, 0.18);
+    }
+
+    .contact-side b {
+      font-size: 30px;
+      margin-bottom: 12px;
+    }
+
+    .contact-side span {
+      color: rgba(255, 255, 255, 0.82);
+      line-height: 1.7;
+    }
+
+    footer {
+      background: #101522;
+      color: rgba(255, 255, 255, 0.72);
+      padding: 46px 22px 96px;
+      text-align: center;
+      line-height: 1.8;
+      font-size: 14px;
+    }
+
+    .kakao-fixed {
+      position: fixed;
+      right: 22px;
+      bottom: 22px;
+      z-index: 9999;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 16px 22px;
+      border-radius: 999px;
+      background: #fee500;
+      color: #111;
+      font-weight: 950;
+      box-shadow: 0 12px 28px rgba(16, 21, 34, 0.2);
+    }
+
+    @media (max-width: 900px) {
+      .nav,
+      .top-cta {
+        display: none;
       }
 
-      .hero-inner{
-        grid-template-columns:1fr;
+      .hero {
+        padding-top: 112px;
       }
 
-      .hero h1{
-        font-size:44px;
+      .hero-inner,
+      .contact-box {
+        grid-template-columns: 1fr;
       }
 
-      .features{
-        grid-template-columns:1fr;
+      .hero h1 {
+        letter-spacing: -2px;
       }
 
-      .process{
-        grid-template-columns:1fr;
+      .notice-grid,
+      .mini-prices,
+      .features,
+      .process {
+        grid-template-columns: 1fr;
       }
 
-      .section-title{
-        font-size:34px;
+      .process-wrap {
+        padding: 26px;
+      }
+
+      section {
+        padding: 70px 18px;
+      }
+
+      .header-inner {
+        padding: 14px 18px;
+      }
+
+      .kakao-fixed {
+        left: 18px;
+        right: 18px;
+        justify-content: center;
       }
     }
   </style>
 </head>
 
 <body>
+  <div class="page">
 
-<header>
-  <div class="header-inner">
-    <div class="logo">아이즈컴퍼니</div>
+    <header>
+      <div class="header-inner">
+        <a class="logo-wrap" href="#">
+          <div class="logo-icon">E</div>
+          <div class="logo">아이즈<span>컴퍼니</span></div>
+        </a>
 
-    <nav class="nav">
-      <a href="#price">오늘의 시세표</a>
-      <a href="#features">진행안내</a>
-      <a href="#contact">상담문의</a>
-    </nav>
+        <nav class="nav">
+          <a href="#price">오늘의 시세표</a>
+          <a href="#benefit">혜택 안내</a>
+          <a href="#process">진행 절차</a>
+          <a href="#contact">상담 문의</a>
+        </nav>
+
+        <a class="top-cta" href="#">카카오 상담</a>
+      </div>
+    </header>
+
+    <section class="hero">
+      <div class="hero-inner">
+        <div>
+          <div class="eyebrow">TODAY PHONE PRICE UPDATE</div>
+
+          <h1>
+            오늘의 휴대폰 시세,<br>
+            <strong>아이즈컴퍼니</strong>에서 확인하세요
+          </h1>
+
+          <p class="hero-desc">
+            매일 변동되는 휴대폰 정책과 시세표를 보기 쉽게 안내합니다.
+            카드 강요, 폰반납 조건 없이 필요한 조건만 깔끔하게 상담해드립니다.
+          </p>
+
+          <div class="hero-buttons">
+            <a class="btn btn-primary" href="#">💬 카카오 상담하기</a>
+            <a class="btn btn-dark" href="#price">📊 시세표 바로보기</a>
+          </div>
+
+          <div class="trust-row">
+            <div class="trust-chip">폰반납 조건 없음</div>
+            <div class="trust-chip">카드 강요 없음</div>
+            <div class="trust-chip">비대면 상담 가능</div>
+            <div class="trust-chip">전국 택배 진행</div>
+          </div>
+        </div>
+
+        <div class="phone-board">
+          <div class="board-top">
+            <div class="board-title">실시간 안내 보드</div>
+            <div class="live-badge">LIVE UPDATE</div>
+          </div>
+
+          <div class="price-card-main">
+            <h3>오늘의 특가<br>시세표 업데이트</h3>
+            <p>
+              갤럭시 · 아이폰 · 인터넷 결합까지<br>
+              상담 전 시세표 먼저 확인하세요.
+            </p>
+
+            <div class="mini-prices">
+              <div class="mini-price">
+                <span>GALAXY</span>
+                <b>특가 진행</b>
+              </div>
+              <div class="mini-price">
+                <span>iPHONE</span>
+                <b>상담 문의</b>
+              </div>
+              <div class="mini-price">
+                <span>INTERNET</span>
+                <b>결합 가능</b>
+              </div>
+            </div>
+          </div>
+
+          <div class="notice-grid">
+            <div class="notice-card">
+              <b>빠른 상담</b>
+              <span>기종, 통신사, 번호이동/기변 조건 확인</span>
+            </div>
+            <div class="notice-card">
+              <b>당일 변동</b>
+              <span>정책 및 재고는 실시간 변동될 수 있음</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="price">
+      <div class="container">
+        <div class="section-head">
+          <div class="section-tag">PRICE TABLE</div>
+          <h2 class="section-title">오늘의 시세표</h2>
+          <p class="section-desc">
+            엑셀로 제작한 시세표 이미지를 이 영역에 넣으면 됩니다.<br>
+            공지 이미지처럼 한눈에 보이도록 크게 배치했습니다.
+          </p>
+        </div>
+
+        <div class="price-wrap">
+          <div class="price-toolbar">
+            <div class="date-pill">업데이트 날짜 : 2026.00.00</div>
+            <div class="warning">※ 정책, 재고, 색상은 실시간 변동될 수 있습니다.</div>
+          </div>
+
+          <div class="price-image">
+            <img src="https://placehold.co/1400x850/e9eefc/1463ff?text=TODAY+PRICE+TABLE" alt="오늘의 시세표">
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="benefit">
+      <div class="container">
+        <div class="section-head">
+          <div class="section-tag">BENEFIT</div>
+          <h2 class="section-title">복잡한 조건은 줄이고, 안내는 쉽게</h2>
+          <p class="section-desc">
+            상담 전 헷갈리는 조건을 최대한 깔끔하게 정리해드립니다.
+          </p>
+        </div>
+
+        <div class="features">
+          <div class="feature">
+            <div class="icon">📱</div>
+            <h3>최신 시세표</h3>
+            <p>매일 달라지는 정책을 이미지 시세표로 보기 쉽게 안내합니다.</p>
+          </div>
+
+          <div class="feature">
+            <div class="icon">💬</div>
+            <h3>카카오 상담</h3>
+            <p>복잡한 전화상담보다 빠르게 조건 확인이 가능합니다.</p>
+          </div>
+
+          <div class="feature">
+            <div class="icon">🚚</div>
+            <h3>전국 진행</h3>
+            <p>방문이 어려운 고객도 비대면 및 택배 진행이 가능합니다.</p>
+          </div>
+
+          <div class="feature">
+            <div class="icon">✅</div>
+            <h3>조건 최소화</h3>
+            <p>폰반납, 카드 강요 등 부담되는 조건을 최소화하여 안내합니다.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="process">
+      <div class="container">
+        <div class="process-wrap">
+          <div class="section-head">
+            <div class="section-tag" style="background:rgba(255,255,255,0.14);color:white;">PROCESS</div>
+            <h2 class="section-title">진행 절차</h2>
+            <p class="section-desc" style="color:rgba(255,255,255,0.72);">
+              처음 문의하시는 분도 어렵지 않게 진행할 수 있습니다.
+            </p>
+          </div>
+
+          <div class="process">
+            <div class="step">
+              <div class="step-number">1</div>
+              <h3>시세표 확인</h3>
+              <p>원하는 통신사와 기종의 현재 조건을 먼저 확인합니다.</p>
+            </div>
+
+            <div class="step">
+              <div class="step-number">2</div>
+              <h3>상담 문의</h3>
+              <p>번호이동/기기변경, 요금제, 색상, 재고를 확인합니다.</p>
+            </div>
+
+            <div class="step">
+              <div class="step-number">3</div>
+              <h3>접수 진행</h3>
+              <p>조건 확인 후 방문 또는 비대면으로 접수를 진행합니다.</p>
+            </div>
+
+            <div class="step">
+              <div class="step-number">4</div>
+              <h3>개통 완료</h3>
+              <p>개통 및 수령 안내까지 순서대로 도와드립니다.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="contact">
+      <div class="container">
+        <div class="contact-box">
+          <div class="contact-main">
+            <h2>상담은 카카오톡으로 빠르게</h2>
+            <p>
+              원하는 기종, 통신사, 번호이동/기기변경 여부를 알려주시면
+              현재 가능한 조건을 기준으로 안내해드립니다.
+            </p>
+
+            <div class="hero-buttons">
+              <a class="btn btn-primary" href="#">💬 카카오 상담하기</a>
+              <a class="btn btn-light" href="#price">시세표 다시보기</a>
+            </div>
+          </div>
+
+          <div class="contact-side">
+            <b>EYES COMPANY</b>
+            <span>
+              매일 업데이트되는 휴대폰 시세표와<br>
+              빠르고 깔끔한 상담 안내
+            </span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <footer>
+      아이즈컴퍼니 · EYES COMPANY<br>
+      상담 가능 시간 / 카카오채널 / 사업자 정보는 추후 입력<br>
+      © 2026 EYES COMPANY. All rights reserved.
+    </footer>
+
+    <a class="kakao-fixed" href="#">💬 카카오 상담</a>
   </div>
-</header>
-
-<section class="hero">
-
-  <div class="hero-inner">
-
-    <div>
-      <h1>
-        휴대폰 성지<br>
-        아이즈컴퍼니
-      </h1>
-
-      <p>
-        매일 업데이트되는 시세표와 빠른 상담.<br>
-        불필요한 카드강요, 폰반납 없이 합리적인 조건으로 안내해드립니다.
-      </p>
-
-      <div class="hero-buttons">
-        <a class="btn btn-primary" href="#">카카오 상담하기</a>
-        <a class="btn btn-sub" href="#price">시세표 보기</a>
-      </div>
-    </div>
-
-    <div class="hero-card">
-
-      <h3>오늘의 안내</h3>
-
-      <div class="notice-list">
-        <div class="notice-item">✔ 실시간 시세표 업데이트</div>
-        <div class="notice-item">✔ 카드 강요 없음</div>
-        <div class="notice-item">✔ 폰반납 조건 없음</div>
-        <div class="notice-item">✔ 전국 택배 진행 가능</div>
-      </div>
-
-    </div>
-
-  </div>
-
-</section>
-
-<section id="price">
-
-  <div class="container">
-
-    <h2 class="section-title">오늘의 시세표</h2>
-
-    <p class="section-desc">
-      아래 이미지는 매일 직접 제작하여 업데이트됩니다.<br>
-      재고 및 정책은 실시간 변동될 수 있습니다.
-    </p>
-
-    <div class="price-image">
-      <img src="https://placehold.co/1200x700/e9eefc/111?text=오늘의+시세표+이미지" alt="">
-    </div>
-
-  </div>
-
-</section>
-
-<section id="features">
-
-  <div class="container">
-
-    <h2 class="section-title">왜 아이즈컴퍼니인가?</h2>
-
-    <p class="section-desc">
-      복잡한 조건 없이 쉽고 빠르게 안내해드립니다.
-    </p>
-
-    <div class="features">
-
-      <div class="feature">
-        <div class="emoji">📱</div>
-        <h3>실시간 정책</h3>
-        <p>매일 변동되는 최신 시세표를 빠르게 안내합니다.</p>
-      </div>
-
-      <div class="feature">
-        <div class="emoji">🚚</div>
-        <h3>전국 진행</h3>
-        <p>택배 개통 및 비대면 상담 진행 가능합니다.</p>
-      </div>
-
-      <div class="feature">
-        <div class="emoji">💬</div>
-        <h3>빠른 상담</h3>
-        <p>카카오톡 기반으로 쉽고 빠르게 문의 가능합니다.</p>
-      </div>
-
-      <div class="feature">
-        <div class="emoji">💸</div>
-        <h3>합리적 조건</h3>
-        <p>불필요한 부가서비스 및 카드 강요를 최소화합니다.</p>
-      </div>
-
-    </div>
-
-  </div>
-
-</section>
-
-<section>
-
-  <div class="container">
-
-    <h2 class="section-title">진행 절차</h2>
-
-    <div class="process">
-
-      <div class="step">
-        <div class="step-number">1</div>
-        <h3>상담 문의</h3>
-        <p>원하는 기종과 통신사를 문의해주세요.</p>
-      </div>
-
-      <div class="step">
-        <div class="step-number">2</div>
-        <h3>조건 안내</h3>
-        <p>현재 가능한 정책 및 조건을 안내드립니다.</p>
-      </div>
-
-      <div class="step">
-        <div class="step-number">3</div>
-        <h3>개통 진행</h3>
-        <p>비대면 또는 방문으로 개통 진행 가능합니다.</p>
-      </div>
-
-      <div class="step">
-        <div class="step-number">4</div>
-        <h3>수령 완료</h3>
-        <p>빠른 배송 및 개통 완료 안내를 도와드립니다.</p>
-      </div>
-
-    </div>
-
-  </div>
-
-</section>
-
-<footer id="contact">
-
-  아이즈컴퍼니<br>
-  카카오 상담 / 전화문의 운영<br>
-  © 2026 EYES COMPANY
-
-</footer>
-
-<a class="kakao-fixed" href="#">
-카카오 상담
-</a>
-
 </body>
 </html>
