@@ -8,32 +8,44 @@
   <style>
     *{margin:0;padding:0;box-sizing:border-box}
     html{scroll-behavior:smooth}
+
     body{
       font-family:'Pretendard','Noto Sans KR',-apple-system,BlinkMacSystemFont,sans-serif;
       background:#f4f7fb;
       color:#121826;
     }
+
     a{text-decoration:none;color:inherit}
-    .container{max-width:1120px;margin:0 auto;padding:0 18px}
+
+    .container{
+      max-width:1120px;
+      margin:0 auto;
+      padding:0 18px;
+    }
 
     header{
-      position:sticky;top:0;z-index:1000;
+      position:sticky;
+      top:0;
+      z-index:1000;
       background:rgba(255,255,255,.9);
       backdrop-filter:blur(16px);
       border-bottom:1px solid #e9eef6;
     }
+
     .header-inner{
       height:64px;
       display:flex;
       justify-content:space-between;
       align-items:center;
     }
+
     .logo{
       font-size:23px;
       font-weight:950;
       letter-spacing:-1px;
       color:#1769ff;
     }
+
     .nav{
       display:flex;
       gap:22px;
@@ -41,6 +53,7 @@
       font-weight:800;
       color:#556070;
     }
+
     .header-btn{
       background:#1769ff;
       color:white;
@@ -50,7 +63,10 @@
       font-weight:900;
     }
 
-    .hero{padding:42px 0 26px}
+    .hero{
+      padding:42px 0 26px;
+    }
+
     .hero-main{
       border-radius:30px;
       padding:44px;
@@ -61,6 +77,7 @@
       overflow:hidden;
       position:relative;
     }
+
     .badge{
       display:inline-flex;
       padding:8px 12px;
@@ -71,12 +88,14 @@
       font-weight:900;
       margin-bottom:18px;
     }
+
     .hero-main h1{
       font-size:48px;
       line-height:1.13;
       letter-spacing:-2.4px;
       margin-bottom:16px;
     }
+
     .hero-main p{
       font-size:16px;
       line-height:1.75;
@@ -84,11 +103,13 @@
       max-width:640px;
       margin-bottom:24px;
     }
+
     .btn-row{
       display:flex;
       gap:9px;
       flex-wrap:wrap;
     }
+
     .btn{
       display:inline-flex;
       align-items:center;
@@ -99,21 +120,123 @@
       font-weight:950;
       transition:.2s;
     }
-    .btn:hover{transform:translateY(-2px)}
-    .btn-white{background:white;color:#1769ff}
-    .btn-dark{background:#121826;color:white}
 
-    .section{padding:34px 0}
+    .btn:hover{
+      transform:translateY(-2px);
+    }
+
+    .btn-white{
+      background:white;
+      color:#1769ff;
+    }
+
+    .btn-dark{
+      background:#121826;
+      color:white;
+    }
+
+    .pickup-wrap{
+      margin-top:26px;
+      display:grid;
+      grid-template-columns:1fr 1fr;
+      gap:12px;
+    }
+
+    .pickup-card{
+      position:relative;
+      overflow:hidden;
+      border-radius:20px;
+      padding:18px;
+      background:rgba(255,255,255,.1);
+      border:1px solid rgba(255,255,255,.14);
+      backdrop-filter:blur(12px);
+    }
+
+    .pickup-bg{
+      position:absolute;
+      inset:0;
+      background:
+        linear-gradient(
+          90deg,
+          rgba(255,255,255,.16) 0%,
+          rgba(255,255,255,.04) 55%,
+          rgba(255,255,255,0) 100%
+        );
+    }
+
+    .pickup-card::before{
+      content:"";
+      position:absolute;
+      left:-30px;
+      top:50%;
+      transform:translateY(-50%);
+      width:150px;
+      height:150px;
+      border-radius:50%;
+      background:
+        radial-gradient(circle,
+          rgba(255,255,255,.22) 0%,
+          rgba(255,255,255,.06) 45%,
+          transparent 75%);
+    }
+
+    .pickup-content{
+      position:relative;
+      z-index:2;
+      display:flex;
+      gap:14px;
+      align-items:flex-start;
+    }
+
+    .pickup-icon{
+      width:44px;
+      height:44px;
+      border-radius:14px;
+      background:rgba(255,255,255,.16);
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      font-size:18px;
+      flex-shrink:0;
+    }
+
+    .pickup-label{
+      font-size:11px;
+      font-weight:900;
+      letter-spacing:.5px;
+      opacity:.72;
+      margin-bottom:4px;
+    }
+
+    .pickup-card h3{
+      font-size:16px;
+      line-height:1.35;
+      margin-bottom:4px;
+      letter-spacing:-.5px;
+    }
+
+    .pickup-card p{
+      font-size:13px;
+      opacity:.82;
+      line-height:1.5;
+    }
+
+    .section{
+      padding:34px 0;
+    }
+
     .section-head{
       text-align:center;
       margin-bottom:20px;
     }
+
     .section-title{
       font-size:32px;
       font-weight:950;
       letter-spacing:-1.5px;
       margin-bottom:8px;
     }
+
     .section-desc{
       font-size:14px;
       color:#667085;
@@ -123,6 +246,7 @@
     .price-section{
       padding:20px 0 42px;
     }
+
     .price-box{
       background:white;
       border:1px solid #e9eef6;
@@ -130,6 +254,7 @@
       padding:24px;
       box-shadow:0 12px 36px rgba(18,24,38,.06);
     }
+
     .price-top{
       display:flex;
       justify-content:space-between;
@@ -138,6 +263,7 @@
       margin-bottom:18px;
       flex-wrap:wrap;
     }
+
     .date-pill{
       background:#edf4ff;
       color:#1769ff;
@@ -146,11 +272,13 @@
       font-size:13px;
       font-weight:950;
     }
+
     .notice{
       font-size:13px;
       color:#667085;
       font-weight:700;
     }
+
     .price-image-wrap{
       width:100%;
       display:flex;
@@ -160,6 +288,7 @@
       padding:18px;
       border:1px dashed #c9d8f5;
     }
+
     .price-image-wrap img{
       width:100%;
       max-width:800px;
@@ -169,6 +298,7 @@
       display:block;
       box-shadow:0 8px 28px rgba(18,24,38,.08);
     }
+
     .price-cta{
       margin-top:18px;
       display:flex;
@@ -187,27 +317,32 @@
       gap:18px;
       box-shadow:0 10px 30px rgba(18,24,38,.04);
     }
+
     .trust-left{
       background:linear-gradient(135deg,#121826,#1648a8);
       color:white;
       border-radius:22px;
       padding:28px;
     }
+
     .trust-left h2{
       font-size:30px;
       letter-spacing:-1.3px;
       line-height:1.2;
       margin-bottom:12px;
     }
+
     .trust-left p{
       font-size:14px;
       line-height:1.7;
       opacity:.82;
     }
+
     .trust-list{
       display:grid;
       gap:10px;
     }
+
     .trust-item{
       background:#f4f7fb;
       border-radius:16px;
@@ -222,6 +357,7 @@
       grid-template-columns:repeat(4,1fr);
       gap:12px;
     }
+
     .step{
       background:white;
       border:1px solid #e9eef6;
@@ -229,8 +365,10 @@
       padding:20px;
       box-shadow:0 8px 24px rgba(18,24,38,.04);
     }
+
     .step-num{
-      width:34px;height:34px;
+      width:34px;
+      height:34px;
       border-radius:50%;
       background:#1769ff;
       color:white;
@@ -240,7 +378,12 @@
       font-weight:950;
       margin-bottom:12px;
     }
-    .step h3{font-size:17px;margin-bottom:7px}
+
+    .step h3{
+      font-size:17px;
+      margin-bottom:7px;
+    }
+
     .step p{
       font-size:12.5px;
       color:#667085;
@@ -258,11 +401,13 @@
       align-items:center;
       gap:18px;
     }
+
     .final-cta h2{
       font-size:28px;
       letter-spacing:-1.2px;
       margin-bottom:7px;
     }
+
     .final-cta p{
       font-size:14px;
       line-height:1.6;
@@ -278,6 +423,7 @@
       font-size:13px;
       line-height:1.8;
     }
+
     .kakao-fixed{
       position:fixed;
       right:20px;
@@ -293,16 +439,51 @@
     }
 
     @media(max-width:900px){
-      .nav,.header-btn{display:none}
-      .header-inner{height:58px}
-      .hero-main{padding:30px}
-      .hero-main h1{font-size:36px;letter-spacing:-1.8px}
-      .trust-box,.process{grid-template-columns:1fr}
-      .final-cta{flex-direction:column;align-items:flex-start}
-      .kakao-fixed{left:18px;right:18px;text-align:center}
-      .price-box{padding:16px}
-      .price-image-wrap{padding:10px}
+
+      .nav,
+      .header-btn{
+        display:none;
+      }
+
+      .header-inner{
+        height:58px;
+      }
+
+      .hero-main{
+        padding:30px;
+      }
+
+      .hero-main h1{
+        font-size:36px;
+        letter-spacing:-1.8px;
+      }
+
+      .pickup-wrap,
+      .trust-box,
+      .process{
+        grid-template-columns:1fr;
+      }
+
+      .final-cta{
+        flex-direction:column;
+        align-items:flex-start;
+      }
+
+      .kakao-fixed{
+        left:18px;
+        right:18px;
+        text-align:center;
+      }
+
+      .price-box{
+        padding:16px;
+      }
+
+      .price-image-wrap{
+        padding:10px;
+      }
     }
+
   </style>
 </head>
 
@@ -310,131 +491,346 @@
 
 <header>
   <div class="container header-inner">
-    <a class="logo" href="#">아이즈컴퍼니</a>
+
+    <a class="logo" href="#">
+      아이즈컴퍼니
+    </a>
+
     <nav class="nav">
       <a href="#price">오늘의 시세표</a>
       <a href="#trust">안내사항</a>
       <a href="#process">진행절차</a>
       <a href="#contact">상담문의</a>
     </nav>
-    <a class="header-btn" href="#">카카오 상담</a>
+
+    <a class="header-btn" href="#">
+      카카오 상담
+    </a>
+
   </div>
 </header>
 
 <main>
+
   <section class="hero">
+
     <div class="container">
+
       <div class="hero-main">
-        <div class="badge">TODAY PHONE PRICE</div>
-        <h1>오늘 휴대폰 가격,<br>시세표로 먼저 확인하세요.</h1>
+
+        <div class="badge">
+          TODAY PHONE PRICE
+        </div>
+
+        <h1>
+          오늘 휴대폰 가격,<br>
+          시세표로 먼저 확인하세요.
+        </h1>
+
         <p>
           아이즈컴퍼니는 매일 변동되는 휴대폰 조건을 시세표로 안내합니다.
           원하는 기종의 가격을 먼저 확인하고, 카카오톡으로 빠르게 상담해보세요.
         </p>
+
         <div class="btn-row">
-          <a class="btn btn-white" href="#price">📊 시세표 보기</a>
-          <a class="btn btn-dark" href="#">💬 카카오 상담하기</a>
+
+          <a class="btn btn-white" href="#price">
+            📊 시세표 보기
+          </a>
+
+          <a class="btn btn-dark" href="#">
+            💬 카카오 상담하기
+          </a>
+
         </div>
+
+        <div class="pickup-wrap">
+
+          <div class="pickup-card">
+
+            <div class="pickup-bg"></div>
+
+            <div class="pickup-content">
+
+              <div class="pickup-icon">
+                📍
+              </div>
+
+              <div>
+                <div class="pickup-label">
+                  방문 수령지
+                </div>
+
+                <h3>
+                  아이즈컴퍼니 경기 하남점
+                </h3>
+
+                <p>
+                  현대클러스터 한강미사3차
+                </p>
+              </div>
+
+            </div>
+
+          </div>
+
+          <div class="pickup-card">
+
+            <div class="pickup-bg"></div>
+
+            <div class="pickup-content">
+
+              <div class="pickup-icon">
+                📍
+              </div>
+
+              <div>
+                <div class="pickup-label">
+                  방문 수령지
+                </div>
+
+                <h3>
+                  아이즈컴퍼니 서울 강변점
+                </h3>
+
+                <p>
+                  강변 테크노마트
+                </p>
+              </div>
+
+            </div>
+
+          </div>
+
+        </div>
+
       </div>
+
     </div>
+
   </section>
 
   <section class="price-section" id="price">
+
     <div class="container">
+
       <div class="section-head">
-        <h2 class="section-title">오늘의 시세표</h2>
+
+        <h2 class="section-title">
+          오늘의 시세표
+        </h2>
+
         <p class="section-desc">
           아래 시세표 이미지를 확인하신 후 원하는 기종을 캡처하거나 모델명을 알려주세요.
         </p>
+
       </div>
 
       <div class="price-box">
+
         <div class="price-top">
-          <div class="date-pill">업데이트 날짜 : 2026.00.00</div>
-          <div class="notice">※ 정책, 재고, 색상, 요금제 조건은 실시간 변동될 수 있습니다.</div>
+
+          <div class="date-pill">
+            업데이트 날짜 : 2026.00.00
+          </div>
+
+          <div class="notice">
+            ※ 정책, 재고, 색상, 요금제 조건은 실시간 변동될 수 있습니다.
+          </div>
+
         </div>
 
         <div class="price-image-wrap">
+
           <img src="price.jpg" alt="오늘의 휴대폰 시세표">
+
         </div>
 
         <div class="price-cta">
-          <a class="btn btn-dark" href="#">💬 이 가격으로 상담하기</a>
-          <a class="btn btn-white" href="#process">진행방법 보기</a>
+
+          <a class="btn btn-dark" href="#">
+            💬 이 가격으로 상담하기
+          </a>
+
+          <a class="btn btn-white" href="#process">
+            진행방법 보기
+          </a>
+
         </div>
+
       </div>
+
     </div>
+
   </section>
 
   <section class="section" id="trust">
+
     <div class="container">
+
       <div class="trust-box">
+
         <div class="trust-left">
-          <h2>가격을 먼저 보고<br>상담은 그 다음에.</h2>
+
+          <h2>
+            가격을 먼저 보고<br>
+            상담은 그 다음에.
+          </h2>
+
           <p>
             시세표에서 원하는 기종과 조건을 먼저 확인하시면 상담이 훨씬 빨라집니다.
             상담 시점 기준으로 재고와 정책을 다시 확인 후 안내드립니다.
           </p>
+
         </div>
 
         <div class="trust-list">
-          <div class="trust-item">✔ 카드 발급 강요 없이 안내</div>
-          <div class="trust-item">✔ 폰반납 조건 없이 상담 가능</div>
-          <div class="trust-item">✔ 시세표 확인 후 빠른 상담</div>
-          <div class="trust-item">✔ 번호이동 / 기기변경 조건 안내</div>
+
+          <div class="trust-item">
+            ✔ 카드 발급 강요 없이 안내
+          </div>
+
+          <div class="trust-item">
+            ✔ 폰반납 조건 없이 상담 가능
+          </div>
+
+          <div class="trust-item">
+            ✔ 시세표 확인 후 빠른 상담
+          </div>
+
+          <div class="trust-item">
+            ✔ 번호이동 / 기기변경 조건 안내
+          </div>
+
         </div>
+
       </div>
+
     </div>
+
   </section>
 
   <section class="section" id="process">
+
     <div class="container">
+
       <div class="section-head">
-        <h2 class="section-title">상담 진행 방법</h2>
-        <p class="section-desc">시세표를 확인한 뒤 아래 순서대로 문의해주세요.</p>
+
+        <h2 class="section-title">
+          상담 진행 방법
+        </h2>
+
+        <p class="section-desc">
+          시세표를 확인한 뒤 아래 순서대로 문의해주세요.
+        </p>
+
       </div>
 
       <div class="process">
+
         <div class="step">
-          <div class="step-num">1</div>
-          <h3>시세표 확인</h3>
-          <p>원하는 기종, 통신사, 번호이동/기변 조건을 확인합니다.</p>
+
+          <div class="step-num">
+            1
+          </div>
+
+          <h3>
+            시세표 확인
+          </h3>
+
+          <p>
+            원하는 기종, 통신사, 번호이동/기변 조건을 확인합니다.
+          </p>
+
         </div>
+
         <div class="step">
-          <div class="step-num">2</div>
-          <h3>모델명 전달</h3>
-          <p>카카오톡으로 원하는 모델명과 현재 통신사를 알려주세요.</p>
+
+          <div class="step-num">
+            2
+          </div>
+
+          <h3>
+            모델명 전달
+          </h3>
+
+          <p>
+            카카오톡으로 원하는 모델명과 현재 통신사를 알려주세요.
+          </p>
+
         </div>
+
         <div class="step">
-          <div class="step-num">3</div>
-          <h3>재고 확인</h3>
-          <p>상담 시점 기준 색상, 용량, 정책 가능 여부를 확인합니다.</p>
+
+          <div class="step-num">
+            3
+          </div>
+
+          <h3>
+            재고 확인
+          </h3>
+
+          <p>
+            상담 시점 기준 색상, 용량, 정책 가능 여부를 확인합니다.
+          </p>
+
         </div>
+
         <div class="step">
-          <div class="step-num">4</div>
-          <h3>개통 안내</h3>
-          <p>방문 또는 비대면 가능 여부에 따라 순서대로 안내드립니다.</p>
+
+          <div class="step-num">
+            4
+          </div>
+
+          <h3>
+            개통 안내
+          </h3>
+
+          <p>
+            방문 또는 비대면 가능 여부에 따라 순서대로 안내드립니다.
+          </p>
+
         </div>
+
       </div>
 
       <div class="final-cta">
+
         <div>
-          <h2>시세표에서 원하는 기종을 찾으셨나요?</h2>
-          <p>카카오톡으로 모델명과 통신사를 보내주시면 빠르게 확인해드립니다.</p>
+
+          <h2>
+            시세표에서 원하는 기종을 찾으셨나요?
+          </h2>
+
+          <p>
+            카카오톡으로 모델명과 통신사를 보내주시면 빠르게 확인해드립니다.
+          </p>
+
         </div>
-        <a class="btn btn-white" href="#">💬 카카오 상담하기</a>
+
+        <a class="btn btn-white" href="#">
+          💬 카카오 상담하기
+        </a>
+
       </div>
+
     </div>
+
   </section>
+
 </main>
 
 <footer id="contact">
+
   아이즈컴퍼니 · EYES COMPANY<br>
   오늘의 휴대폰 시세표 / 카카오 상담 / 개통 안내<br>
   © 2026 EYES COMPANY. All rights reserved.
+
 </footer>
 
-<a class="kakao-fixed" href="#">💬 카카오 상담</a>
+<a class="kakao-fixed" href="#">
+  💬 카카오 상담
+</a>
 
 </body>
 </html>
