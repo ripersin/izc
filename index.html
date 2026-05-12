@@ -18,7 +18,7 @@
 
     header{
       position:sticky;top:0;z-index:1000;
-      background:rgba(255,255,255,.88);
+      background:rgba(255,255,255,.9);
       backdrop-filter:blur(16px);
       border-bottom:1px solid #e9eef6;
     }
@@ -41,7 +41,6 @@
       font-weight:800;
       color:#556070;
     }
-    .nav a:hover{color:#1769ff}
     .header-btn{
       background:#1769ff;
       color:white;
@@ -51,32 +50,19 @@
       font-weight:900;
     }
 
-    .hero{
-      padding:42px 0 36px;
-    }
-    .hero-wrap{
-      display:grid;
-      grid-template-columns:1.05fr .95fr;
-      gap:18px;
-      align-items:stretch;
-    }
+    .hero{padding:42px 0 26px}
     .hero-main{
-      min-height:430px;
       border-radius:30px;
-      padding:42px;
+      padding:44px;
       background:
         radial-gradient(circle at 85% 20%,rgba(255,255,255,.22),transparent 28%),
         linear-gradient(135deg,#1769ff,#0a2e73);
       color:white;
       overflow:hidden;
       position:relative;
-      display:flex;
-      flex-direction:column;
-      justify-content:center;
     }
     .badge{
       display:inline-flex;
-      width:max-content;
       padding:8px 12px;
       border-radius:999px;
       background:rgba(255,255,255,.14);
@@ -95,7 +81,7 @@
       font-size:16px;
       line-height:1.75;
       opacity:.9;
-      max-width:540px;
+      max-width:640px;
       margin-bottom:24px;
     }
     .btn-row{
@@ -116,61 +102,17 @@
     .btn:hover{transform:translateY(-2px)}
     .btn-white{background:white;color:#1769ff}
     .btn-dark{background:#121826;color:white}
-    .btn-line{
-      background:rgba(255,255,255,.12);
-      border:1px solid rgba(255,255,255,.18);
-      color:white;
-    }
-
-    .hero-side{
-      display:grid;
-      gap:14px;
-    }
-    .quick-card{
-      background:white;
-      border-radius:26px;
-      padding:24px;
-      border:1px solid #e9eef6;
-      box-shadow:0 10px 30px rgba(18,24,38,.05);
-    }
-    .quick-card h3{
-      font-size:22px;
-      letter-spacing:-1px;
-      margin-bottom:12px;
-    }
-    .quick-grid{
-      display:grid;
-      grid-template-columns:1fr 1fr;
-      gap:9px;
-    }
-    .quick-item{
-      padding:14px;
-      border-radius:16px;
-      background:#f4f7fb;
-      font-size:13px;
-      font-weight:850;
-      color:#344054;
-    }
-    .quick-item b{
-      display:block;
-      color:#1769ff;
-      font-size:16px;
-      margin-bottom:4px;
-    }
 
     .section{padding:34px 0}
     .section-head{
-      display:flex;
-      justify-content:space-between;
-      align-items:end;
-      margin-bottom:16px;
-      gap:16px;
+      text-align:center;
+      margin-bottom:20px;
     }
     .section-title{
-      font-size:28px;
+      font-size:32px;
       font-weight:950;
-      letter-spacing:-1.4px;
-      margin-bottom:6px;
+      letter-spacing:-1.5px;
+      margin-bottom:8px;
     }
     .section-desc{
       font-size:14px;
@@ -178,101 +120,61 @@
       line-height:1.65;
     }
 
-    .category-grid{
-      display:grid;
-      grid-template-columns:repeat(4,1fr);
-      gap:12px;
+    .price-section{
+      padding:20px 0 42px;
     }
-    .category{
+    .price-box{
       background:white;
       border:1px solid #e9eef6;
-      border-radius:22px;
-      padding:20px;
-      box-shadow:0 8px 24px rgba(18,24,38,.04);
-      transition:.2s;
+      border-radius:30px;
+      padding:24px;
+      box-shadow:0 12px 36px rgba(18,24,38,.06);
     }
-    .category:hover{transform:translateY(-4px)}
-    .category .icon{
-      width:40px;height:40px;
-      border-radius:14px;
-      background:#edf4ff;
-      display:grid;
-      place-items:center;
-      font-size:20px;
-      margin-bottom:12px;
-    }
-    .category h3{
-      font-size:17px;
-      margin-bottom:6px;
-    }
-    .category p{
-      font-size:12.5px;
-      color:#667085;
-      line-height:1.55;
-    }
-
-    .deal-grid{
-      display:grid;
-      grid-template-columns:repeat(3,1fr);
-      gap:14px;
-    }
-    .deal-card{
-      background:white;
-      border:1px solid #e9eef6;
-      border-radius:24px;
-      padding:20px;
-      box-shadow:0 8px 24px rgba(18,24,38,.04);
-    }
-    .deal-thumb{
-      height:96px;
-      border-radius:18px;
-      background:linear-gradient(135deg,#eaf1ff,#dff8ff);
-      display:flex;
-      align-items:center;
-      justify-content:center;
-      color:#1769ff;
-      font-size:24px;
-      font-weight:950;
-      margin-bottom:14px;
-    }
-    .tag{
-      display:inline-block;
-      padding:6px 9px;
-      border-radius:999px;
-      background:#edf4ff;
-      color:#1769ff;
-      font-size:11px;
-      font-weight:950;
-      margin-bottom:9px;
-    }
-    .deal-card h3{
-      font-size:20px;
-      letter-spacing:-.8px;
-      margin-bottom:7px;
-    }
-    .deal-card p{
-      font-size:13px;
-      color:#667085;
-      line-height:1.6;
-      min-height:42px;
-      margin-bottom:14px;
-    }
-    .deal-bottom{
+    .price-top{
       display:flex;
       justify-content:space-between;
       align-items:center;
+      gap:14px;
+      margin-bottom:18px;
+      flex-wrap:wrap;
     }
-    .deal-price{
-      font-size:17px;
+    .date-pill{
+      background:#edf4ff;
+      color:#1769ff;
+      padding:9px 13px;
+      border-radius:999px;
+      font-size:13px;
       font-weight:950;
     }
-    .small-btn{
-      background:#121826;
-      color:white;
-      padding:8px 11px;
-      border-radius:10px;
-      font-size:12px;
-      font-weight:900;
+    .notice{
+      font-size:13px;
+      color:#667085;
+      font-weight:700;
+    }
+    .price-image-wrap{
+      width:100%;
+      display:flex;
+      justify-content:center;
+      background:#f4f7fb;
+      border-radius:24px;
+      padding:18px;
+      border:1px dashed #c9d8f5;
+    }
+    .price-image-wrap img{
+      width:100%;
+      max-width:800px;
+      aspect-ratio:1/1;
+      object-fit:cover;
+      border-radius:18px;
+      display:block;
+      box-shadow:0 8px 28px rgba(18,24,38,.08);
+    }
+    .price-cta{
+      margin-top:18px;
+      display:flex;
+      justify-content:center;
+      gap:9px;
+      flex-wrap:wrap;
     }
 
     .trust-box{
@@ -346,7 +248,7 @@
     }
 
     .final-cta{
-      margin-top:10px;
+      margin-top:20px;
       border-radius:28px;
       padding:30px;
       background:linear-gradient(135deg,#1769ff,#00a9ff);
@@ -393,13 +295,13 @@
     @media(max-width:900px){
       .nav,.header-btn{display:none}
       .header-inner{height:58px}
-      .hero-wrap,.trust-box{grid-template-columns:1fr}
-      .hero-main{min-height:360px;padding:30px}
+      .hero-main{padding:30px}
       .hero-main h1{font-size:36px;letter-spacing:-1.8px}
-      .quick-grid,.category-grid,.deal-grid,.process{grid-template-columns:1fr}
-      .section-head{flex-direction:column;align-items:flex-start}
+      .trust-box,.process{grid-template-columns:1fr}
       .final-cta{flex-direction:column;align-items:flex-start}
       .kakao-fixed{left:18px;right:18px;text-align:center}
+      .price-box{padding:16px}
+      .price-image-wrap{padding:10px}
     }
   </style>
 </head>
@@ -410,10 +312,10 @@
   <div class="container header-inner">
     <a class="logo" href="#">아이즈컴퍼니</a>
     <nav class="nav">
-      <a href="#category">조건찾기</a>
-      <a href="#deal">인기상담</a>
+      <a href="#price">오늘의 시세표</a>
       <a href="#trust">안내사항</a>
       <a href="#process">진행절차</a>
+      <a href="#contact">상담문의</a>
     </nav>
     <a class="header-btn" href="#">카카오 상담</a>
   </div>
@@ -421,119 +323,44 @@
 
 <main>
   <section class="hero">
-    <div class="container hero-wrap">
+    <div class="container">
       <div class="hero-main">
-        <div class="badge">PHONE CONSULTING SERVICE</div>
-        <h1>휴대폰 구매,<br>조건부터 깔끔하게.</h1>
+        <div class="badge">TODAY PHONE PRICE</div>
+        <h1>오늘 휴대폰 가격,<br>시세표로 먼저 확인하세요.</h1>
         <p>
-          번호이동, 기기변경, 인터넷 결합까지.
-          복잡한 휴대폰 조건을 아이즈컴퍼니가 보기 쉽게 정리해드립니다.
+          아이즈컴퍼니는 매일 변동되는 휴대폰 조건을 시세표로 안내합니다.
+          원하는 기종의 가격을 먼저 확인하고, 카카오톡으로 빠르게 상담해보세요.
         </p>
         <div class="btn-row">
-          <a class="btn btn-white" href="#">💬 카카오 상담하기</a>
-          <a class="btn btn-line" href="#deal">인기 상담 보기</a>
-        </div>
-      </div>
-
-      <div class="hero-side">
-        <div class="quick-card">
-          <h3>빠른 조건 확인</h3>
-          <div class="quick-grid">
-            <div class="quick-item"><b>01</b>통신사</div>
-            <div class="quick-item"><b>02</b>기종/색상</div>
-            <div class="quick-item"><b>03</b>번호이동/기변</div>
-            <div class="quick-item"><b>04</b>요금제</div>
-          </div>
-        </div>
-
-        <div class="quick-card">
-          <h3>상담 전 안내</h3>
-          <div class="quick-grid">
-            <div class="quick-item"><b>✓</b>카드강요 없음</div>
-            <div class="quick-item"><b>✓</b>폰반납 없음</div>
-            <div class="quick-item"><b>✓</b>전국 진행</div>
-            <div class="quick-item"><b>✓</b>카카오 상담</div>
-          </div>
+          <a class="btn btn-white" href="#price">📊 시세표 보기</a>
+          <a class="btn btn-dark" href="#">💬 카카오 상담하기</a>
         </div>
       </div>
     </div>
   </section>
 
-  <section class="section" id="category">
+  <section class="price-section" id="price">
     <div class="container">
       <div class="section-head">
-        <div>
-          <h2 class="section-title">무엇을 찾고 계신가요?</h2>
-          <p class="section-desc">원하는 조건을 기준으로 빠르게 상담 받을 수 있어요.</p>
-        </div>
+        <h2 class="section-title">오늘의 시세표</h2>
+        <p class="section-desc">
+          아래 시세표 이미지를 확인하신 후 원하는 기종을 캡처하거나 모델명을 알려주세요.
+        </p>
       </div>
 
-      <div class="category-grid">
-        <a class="category" href="#">
-          <div class="icon">📱</div>
-          <h3>번호이동</h3>
-          <p>통신사를 변경하면서 새 휴대폰을 찾는 경우</p>
-        </a>
-        <a class="category" href="#">
-          <div class="icon">🔁</div>
-          <h3>기기변경</h3>
-          <p>현재 통신사를 유지하면서 기기만 변경</p>
-        </a>
-        <a class="category" href="#">
-          <div class="icon">🍎</div>
-          <h3>아이폰</h3>
-          <p>인기 색상, 용량, 재고 확인 상담</p>
-        </a>
-        <a class="category" href="#">
-          <div class="icon">📶</div>
-          <h3>인터넷 결합</h3>
-          <p>휴대폰과 인터넷/TV 결합 조건 상담</p>
-        </a>
-      </div>
-    </div>
-  </section>
-
-  <section class="section" id="deal">
-    <div class="container">
-      <div class="section-head">
-        <div>
-          <h2 class="section-title">인기 상담 상품</h2>
-          <p class="section-desc">현재 문의가 많은 대표 카테고리입니다.</p>
-        </div>
-      </div>
-
-      <div class="deal-grid">
-        <div class="deal-card">
-          <div class="deal-thumb">GALAXY</div>
-          <span class="tag">BEST</span>
-          <h3>갤럭시 최신폰</h3>
-          <p>갤럭시 S/Z 시리즈 번호이동·기기변경 조건 확인</p>
-          <div class="deal-bottom">
-            <div class="deal-price">상담문의</div>
-            <a class="small-btn" href="#">문의</a>
-          </div>
+      <div class="price-box">
+        <div class="price-top">
+          <div class="date-pill">업데이트 날짜 : 2026.00.00</div>
+          <div class="notice">※ 정책, 재고, 색상, 요금제 조건은 실시간 변동될 수 있습니다.</div>
         </div>
 
-        <div class="deal-card">
-          <div class="deal-thumb">iPHONE</div>
-          <span class="tag">HOT</span>
-          <h3>아이폰 인기모델</h3>
-          <p>색상, 용량, 재고 여부와 현재 가능 조건 안내</p>
-          <div class="deal-bottom">
-            <div class="deal-price">실시간</div>
-            <a class="small-btn" href="#">문의</a>
-          </div>
+        <div class="price-image-wrap">
+          <img src="price.jpg" alt="오늘의 휴대폰 시세표">
         </div>
 
-        <div class="deal-card">
-          <div class="deal-thumb">COMBO</div>
-          <span class="tag">SAVE</span>
-          <h3>인터넷 + TV 결합</h3>
-          <p>휴대폰과 함께 결합 가능한 조건을 정리해드립니다</p>
-          <div class="deal-bottom">
-            <div class="deal-price">결합상담</div>
-            <a class="small-btn" href="#">문의</a>
-          </div>
+        <div class="price-cta">
+          <a class="btn btn-dark" href="#">💬 이 가격으로 상담하기</a>
+          <a class="btn btn-white" href="#process">진행방법 보기</a>
         </div>
       </div>
     </div>
@@ -543,19 +370,18 @@
     <div class="container">
       <div class="trust-box">
         <div class="trust-left">
-          <h2>싼 가격보다 중요한 건<br>조건을 정확히 아는 것.</h2>
+          <h2>가격을 먼저 보고<br>상담은 그 다음에.</h2>
           <p>
-            휴대폰 가격은 통신사, 요금제, 번호이동/기기변경 여부,
-            재고와 정책에 따라 달라질 수 있습니다.
-            아이즈컴퍼니는 상담 시점 기준으로 가능한 조건을 안내합니다.
+            시세표에서 원하는 기종과 조건을 먼저 확인하시면 상담이 훨씬 빨라집니다.
+            상담 시점 기준으로 재고와 정책을 다시 확인 후 안내드립니다.
           </p>
         </div>
 
         <div class="trust-list">
           <div class="trust-item">✔ 카드 발급 강요 없이 안내</div>
           <div class="trust-item">✔ 폰반납 조건 없이 상담 가능</div>
-          <div class="trust-item">✔ 상담 시점 기준 재고/정책 확인</div>
-          <div class="trust-item">✔ 방문/비대면 진행 여부 상담 가능</div>
+          <div class="trust-item">✔ 시세표 확인 후 빠른 상담</div>
+          <div class="trust-item">✔ 번호이동 / 기기변경 조건 안내</div>
         </div>
       </div>
     </div>
@@ -564,49 +390,47 @@
   <section class="section" id="process">
     <div class="container">
       <div class="section-head">
-        <div>
-          <h2 class="section-title">진행 절차</h2>
-          <p class="section-desc">처음 문의해도 어렵지 않게 순서대로 안내해드립니다.</p>
-        </div>
+        <h2 class="section-title">상담 진행 방법</h2>
+        <p class="section-desc">시세표를 확인한 뒤 아래 순서대로 문의해주세요.</p>
       </div>
 
       <div class="process">
         <div class="step">
           <div class="step-num">1</div>
-          <h3>조건 문의</h3>
-          <p>원하는 기종, 통신사, 번호이동/기변 여부를 알려주세요.</p>
+          <h3>시세표 확인</h3>
+          <p>원하는 기종, 통신사, 번호이동/기변 조건을 확인합니다.</p>
         </div>
         <div class="step">
           <div class="step-num">2</div>
-          <h3>정책 확인</h3>
-          <p>상담 시점 기준 가능한 조건과 재고를 확인합니다.</p>
+          <h3>모델명 전달</h3>
+          <p>카카오톡으로 원하는 모델명과 현재 통신사를 알려주세요.</p>
         </div>
         <div class="step">
           <div class="step-num">3</div>
-          <h3>접수 안내</h3>
-          <p>방문 또는 비대면 가능 여부를 기준으로 안내합니다.</p>
+          <h3>재고 확인</h3>
+          <p>상담 시점 기준 색상, 용량, 정책 가능 여부를 확인합니다.</p>
         </div>
         <div class="step">
           <div class="step-num">4</div>
-          <h3>개통 진행</h3>
-          <p>개통과 수령까지 필요한 절차를 순서대로 도와드립니다.</p>
+          <h3>개통 안내</h3>
+          <p>방문 또는 비대면 가능 여부에 따라 순서대로 안내드립니다.</p>
         </div>
       </div>
 
       <div class="final-cta">
         <div>
-          <h2>지금 가능한 조건이 궁금하다면?</h2>
-          <p>카카오톡으로 원하는 기종과 통신사를 남겨주세요.</p>
+          <h2>시세표에서 원하는 기종을 찾으셨나요?</h2>
+          <p>카카오톡으로 모델명과 통신사를 보내주시면 빠르게 확인해드립니다.</p>
         </div>
-        <a class="btn btn-white" href="#">💬 상담 시작하기</a>
+        <a class="btn btn-white" href="#">💬 카카오 상담하기</a>
       </div>
     </div>
   </section>
 </main>
 
-<footer>
+<footer id="contact">
   아이즈컴퍼니 · EYES COMPANY<br>
-  카카오 상담 / 휴대폰 조건 안내 / 인터넷 결합 상담<br>
+  오늘의 휴대폰 시세표 / 카카오 상담 / 개통 안내<br>
   © 2026 EYES COMPANY. All rights reserved.
 </footer>
 
