@@ -155,48 +155,61 @@
 .pickup-card{
   position:relative;
   overflow:hidden;
-  border-radius:30px;
+  border-radius:28px;
   padding:26px;
-  color:#121826;
+  min-height:188px;
+
   background:
     linear-gradient(
       135deg,
-      rgba(255,255,255,.95),
-      rgba(237,244,255,.92)
+      rgba(255,255,255,.98) 0%,
+      rgba(247,249,252,.96) 45%,
+      rgba(236,240,246,.95) 100%
     );
-  border:1px solid rgba(23,105,255,.08);
+
+  border:1px solid rgba(0,0,0,.06);
+
   box-shadow:
-    0 12px 36px rgba(18,24,38,.06),
-    inset 0 1px 0 rgba(255,255,255,.8);
-  min-height:188px;
+    0 10px 30px rgba(18,24,38,.05),
+    inset 0 1px 0 rgba(255,255,255,.9);
+
   display:flex;
   align-items:flex-end;
-  backdrop-filter:blur(14px);
+
+  color:#121826;
 }
 
 .pickup-card::before{
   content:"";
   position:absolute;
   inset:0;
+
   background:
     linear-gradient(
       90deg,
-      rgba(23,105,255,.08) 0%,
-      rgba(23,105,255,.03) 45%,
-      rgba(23,105,255,0) 100%
+      rgba(255,255,255,.72) 0%,
+      rgba(255,255,255,.18) 38%,
+      rgba(255,255,255,0) 100%
     );
+
+  z-index:1;
+}
 
 .pickup-card::after{
   content:"🗺️";
-  opacity:.08;
-      position:absolute;
-      left:22px;
-      top:20px;
-      font-size:92px;
-      opacity:.18;
-      filter:blur(.2px);
-      z-index:0;
-    }
+
+  position:absolute;
+  left:18px;
+  top:14px;
+
+  font-size:110px;
+
+  opacity:.045;
+
+  filter:grayscale(1);
+
+  z-index:0;
+}
 
     .pickup-glow{
       position:absolute;
@@ -217,39 +230,24 @@
       align-items:flex-start;
     }
 
-    .pickup-icon{
-      width:44px;
-      height:44px;
-      border-radius:15px;
-      background:rgba(255,255,255,.17);
-      display:flex;
-      align-items:center;
-      justify-content:center;
-      font-size:19px;
-      flex-shrink:0;
-      backdrop-filter:blur(10px);
-    }
-
-    .pickup-label{
-      display:inline-flex;
-      padding:6px 9px;
-      border-radius:999px;
-      background:rgba(255,255,255,.14);
-      font-size:11px;
-      font-weight:950;
-      letter-spacing:.3px;
-      margin-bottom:8px;
-    }
-
-.pickup-card h3{
+.pickup-icon{
+  background:#eef2f7;
   color:#1769ff;
 }
 
-    .pickup-card p{
-      font-size:14px;
-      opacity:.82;
-      line-height:1.5;
-    }
+.pickup-label{
+  background:#eef2f7;
+  color:#5b6577;
+}
+
+.pickup-card h3{
+  color:#111827;
+}
+
+.pickup-card p{
+  color:#6b7280;
+  opacity:1;
+}
 
     .section{
       padding:34px 0;
